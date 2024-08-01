@@ -347,6 +347,31 @@ h1 {
     cursor: pointer;
     margin-top: 10px;
 }
+
+.popup-limite {
+    /* Adicione estilos para o novo pop-up, como centralização e design */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1001; /* Certifique-se de que o z-index está alto o suficiente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-overlay-limite {
+    /* Adicione estilos para a sobreposição, como fundo semitransparente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Certifique-se de que o z-index está abaixo do pop-up */
+}
+
 @media (max-width: 768px) {
     .card {
         width: 100%;

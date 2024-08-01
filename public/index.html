@@ -10,7 +10,7 @@
     <header>
         <div class="logo">
             <a href="javascript:location.reload();">
-                <img src="/assets/colorido_800px.png" class="logo">
+                <img src="./assets/colorido_800px.png" class="logo">
             </a>
         </div>
     </header>
@@ -23,7 +23,7 @@
             <!-- Card 1 -->
             <div class="card" data-click-limit="5" data-product-id="produto1">
                 <div class="card-top" style="background-color: #f8d7da;">
-                    <img src="/assets/integratainfantil.png" class="card-logo">
+                    <img src="./assets/integratainfantil.png" class="card-logo">
                 </div>
                 <div class="card-bottom">
                     Unidade Integrata<br>(Jardim Infantil ||)<br><div class="click-count-container">Matriculas:<span class="click-count">0</span> / <span class="click-limit">5</span><br></div>
@@ -33,7 +33,7 @@
             <!-- Card 2 -->
             <div class="card" data-click-limit="5" data-product-id="produto2">
                 <div class="card-top" style="background-color: #d4edda;">
-                    <img src="/assets/colorido_800px.png" class="card-logo">
+                    <img src="./assets/colorido_800px.png" class="card-logo">
                 </div>
                 <div class="card-bottom">
                     Unidade BrainGame<br><div class="click-count-container">Matriculas:<span class="click-count">0</span> / <span class="click-limit">5</span><br></div>
@@ -44,7 +44,7 @@
             <!-- Card 3 -->
             <div class="card" data-click-limit="5" data-product-id="produto3">
                 <div class="card-top" style="background-color: #d1ecf1;">
-                    <img src="/assets/LogoIntegrata.png" class="card-logo">
+                    <img src="./assets/LogoIntegrata.png" class="card-logo">
                 </div>
                 <div class="card-bottom">
                     Unidade Integrata<br><div class="click-count-container">Matriculas:<span class="click-count">0</span> / <span class="click-limit">5</span><br></div>
@@ -55,7 +55,7 @@
             <!-- Card 4 -->
             <div class="card" data-click-limit="5" data-product-id="produto4">
                 <div class="card-top" style="background-color: #fff3cd;">
-                    <img src="/assets/logonovaera.png" class="card-logo">
+                    <img src="./assets/logonovaera.png" class="card-logo">
                 </div>
                 <div class="card-bottom">
                     Unidade Nova Era<br><div class="click-count-container">Matriculas: <span class="click-count">0</span> / <span class="click-limit">5</span><br></div>
@@ -66,7 +66,7 @@
             <!-- Card 5 -->
             <div class="card" data-click-limit="5" data-product-id="produto5">
                 <div class="card-top" style="background-color: #e2e3e5;">
-                    <img src="/assets/integratainfantil.png" class="card-logo">
+                    <img src="./assets/integratainfantil.png" class="card-logo">
                 </div>
                 <div class="card-bottom">
                     Unidade Integrata<br>(Infantil do 1° ao 2° Ano)<br><div class="click-count-container">Matriculas: <span class="click-count">0</span> / <span class="click-limit">5</span><br></div>
@@ -77,7 +77,7 @@
             <!-- Card 6 -->
             <div class="card" data-click-limit="5" data-product-id="produto6">
                 <div class="card-top" style="background-color: #cce5ff;">
-                    <img src="/assets/Design_sem_nome-removebg-preview.png" class="card-logo">
+                    <img src="./assets/Design_sem_nome-removebg-preview.png" class="card-logo">
                 </div>
                 <div class="card-bottom">
                     Unidade BrainGame<br>PREMIUM<br><div class="click-count-container">Matriculas: <span class="click-count">0</span> / <span class="click-limit">5</span><br></div>
@@ -92,7 +92,7 @@
     </div>
     <div class="whatsapp-button">
         <a href="https://wa.me/5511999999999" target="_blank">
-            <img src="/assets/iconewhatsapp.webp" alt="WhatsApp">
+            <img src="./assets/iconewhatsapp.webp" alt="WhatsApp">
         </a>
     </div>
     <!--popup termos-->
@@ -120,7 +120,12 @@
         <button class="confirm">Sim</button>
         <button class="cancel">Não</button>
     </div>
-
+<!-- Pop-up para limite de cliques atingido -->
+<div class="popup-overlay-limite" style="display:none;"></div>
+<div class="popup-limite" style="display:none;">
+    <p>As vagas foram preenchidas. Será necessário entrar em contato para mais informações.</p>
+    <button class="fechar-limite">Fechar</button>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

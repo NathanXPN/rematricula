@@ -1,27 +1,49 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const app = express();
-const PORT = process.env.PORT || 3000;
+const router = express.Router();
+const connectToDatabase = require('./db');
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch(err => {
-  console.error('Error connecting to MongoDB', err);
+router.post('/update-click-count', async (req, res) => {
+    const { cardId } = req.body;
+
+    if (!cardId) {
+        return res.status(400).json({ error: 'Card ID is required' });
+    }
+
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('clicks');
+        
+        const result = await collection.findOneAndUpdate(
+            { cardId: cardId },
+            { $inc: { count: 1 } },
+            { returnDocument: 'after', upsert: true }
+        );
+
+        res.status(200).json({ clickCount: result.value.count });
+    } catch (error) {
+        console.error('Error updating click count:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+router.get('/get-click-count/:cardId', async (req, res) => {
+    const { cardId } = req.params;
 
-// Rotas
-const indexRouter = require('./routes/index');
-app.use('/', indexRouter);
+    if (!cardId) {
+        return res.status(400).json({ error: 'Card ID is required' });
+    }
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    try {
+        const db = await connectToDatabase();
+        const collection = db.collection('clicks');
+        
+        const result = await collection.findOne({ cardId: cardId });
+        
+        res.status(200).json({ clickCount: result ? result.count : 0 });
+    } catch (error) {
+        console.error('Error retrieving click count:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
+
+module.exports = router;
