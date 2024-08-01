@@ -10,32 +10,53 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Fake database (JSON file for simplicity)
-const dbFile = 'clickCounts.json';
+// Caminho para o arquivo JSON
+const dbFile = path.join(__dirname, 'clickCounts.json');
 
-// Initialize the fake database
+// Inicializa o banco de dados se não existir
 if (!fs.existsSync(dbFile)) {
     fs.writeFileSync(dbFile, JSON.stringify({}));
 }
 
-// Get click counts
+// Rota para obter contagens de cliques
 app.get('/clicks', (req, res) => {
-    const data = JSON.parse(fs.readFileSync(dbFile));
-    res.json(data);
+    fs.readFile(dbFile, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading click counts');
+        }
+        try {
+            const jsonData = JSON.parse(data);
+            res.setHeader('Content-Type', 'application/json');
+            res.json(jsonData);
+        } catch (error) {
+            res.status(500).send('Error parsing JSON data');
+        }
+    });
 });
 
-// Update click count
+// Rota para atualizar a contagem de cliques
 app.post('/click', (req, res) => {
-    const { productId } = req.body;
-    const data = JSON.parse(fs.readFileSync(dbFile));
-    
-    if (!data[productId]) {
-        data[productId] = 0;
-    }
-
-    data[productId]++;
-    fs.writeFileSync(dbFile, JSON.stringify(data));
-    res.json({ success: true, clickCount: data[productId] });
+    fs.readFile(dbFile, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading click counts');
+        }
+        try {
+            const jsonData = JSON.parse(data);
+            const { productId } = req.body;
+            if (!jsonData[productId]) {
+                jsonData[productId] = 0;
+            }
+            jsonData[productId]++;
+            fs.writeFile(dbFile, JSON.stringify(jsonData, null, 2), (err) => {
+                if (err) {
+                    return res.status(500).send('Error writing click counts');
+                }
+                res.json({ success: true, clickCount: jsonData[productId] });
+            });
+        } catch (error) {
+            res.status(500).send('Error parsing JSON data');
+        }
+    });
 });
 
 app.listen(PORT, () => {

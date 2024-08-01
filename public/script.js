@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     fetch('/clicks')
         .then(response => response.json())
         .then(data => {
@@ -39,6 +39,7 @@ function handleClick(button, url) {
                 button.disabled = true;
             }
 
+            // Redireciona para a URL após a contagem ser atualizada
             window.location.href = url;
         });
 }
