@@ -1,18 +1,3 @@
-// script.js
-document.querySelector('.prev').addEventListener('click', () => {
-    document.querySelector('.carousel').scrollBy({
-        left: -200,
-        behavior: 'smooth'
-    });
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    document.querySelector('.carousel').scrollBy({
-        left: 200,
-        behavior: 'smooth'
-    });
-});
-
 document.addEventListener('DOMContentLoaded', (event) => {
     fetch('/clicks')
         .then(response => response.json())
@@ -57,4 +42,3 @@ function handleClick(button, url) {
             window.location.href = url;
         });
 }
-
