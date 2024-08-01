@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1; /* Faz o main ocupar todo o espaço disponível entre o cabeçalho e o rodapé */
+    padding: 20px;
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards */
+    gap: 20px; /* Aumenta o espaçamento entre os cards */
+    margin: 0 auto; /* Centraliza o contêiner */
+    max-width: 1200px; /* Define a largura máxima para o contêiner */
+}
+
+header {
+    background: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 40px; /* Ajuste o tamanho conforme necessário */
+    margin-left: 0; /* Centraliza o logo à esquerda */
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.header-container {
+    background: linear-gradient(45deg, #f19b19, #f02372, #a13ce4, #408bec, #40ec5d);
+    background-size: 400% 400%;
+    padding: 20px;
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.card {
+    background: #fff; /* Fallback para o fundo do card */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Aumenta o tamanho dos cards */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card-top {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-logo {
+    width: 40px; /* Ajuste o tamanho da logo conforme necessário */
+    height: auto;
+}
+
+.card-bottom {
+    background: #fff;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-bottom button.matricular {
+    background: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilos específicos para a cor de fundo dos cards */
+.card:nth-child(1) .card-top {
+    background-color: #f8d7da; /* Cor específica para o primeiro card */
+}
+
+.card:nth-child(2) .card-top {
+    background-color: #d4edda; /* Cor específica para o segundo card */
+}
+
+.card:nth-child(3) .card-top {
+    background-color: #d1ecf1; /* Cor específica para o terceiro card */
+}
+
+.card:nth-child(4) .card-top {
+    background-color: #fff3cd; /* Cor específica para o quarto card */
+}
+
+.card:nth-child(5) .card-top {
+    background-color: #e2e3e5; /* Cor específica para o quinto card */
+}
+
+.card:nth-child(6) .card-top {
+    background-color: #cce5ff; /* Cor específica para o sexto card */
+}
+
+.card:nth-child(7) .card-top {
+    background-color: #f8d7da; /* Cor específica para o sétimo card (reutilizando a cor do primeiro) */
+}
+
+.card:hover {
+    background: linear-gradient(45deg, #ff9900, #ffcc00); /* Gradiente animado no hover */
+    animation: gradientHover 3s ease infinite;
+}
+
+@keyframes gradientHover {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed; /* Fixa o rodapé no fundo da página */
+    bottom: 0;
+    width: 100%; /* Garante que o rodapé ocupe a largura total */
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .card {
+        width: 200px; /* Ajusta a largura dos cards para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* Faz os cards ocuparem a largura total em telas muito pequenas */
+        max-width: 300px; /* Define uma largura máxima para os cards */
+    }
+
+    footer {
+        padding: 10px; /* Reduz o padding do rodapé em telas menores */
+    }
+
+    .whatsapp-button {
+        bottom: 10px; /* Ajusta a posição do botão do WhatsApp em telas menores */
+        right: 10px;
+    }
+}

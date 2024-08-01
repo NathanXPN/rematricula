@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Rematrícula</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" class="logo-link">
+                <img src="logo-small.png" class="logo">
+            </a>
+        </div>
+    </header>
+    <div class="header-container">
+        <h1>Plataforma de Rematrícula</h1>
+    </div>
+    <main>
+        <div class="main-container">
+            <!-- Exemplo de card com data-product-id -->
+<div class="card" data-click-limit="5" data-product-id="produto1">
+    <div class="card-top" style="background-color: #f8d7da;">
+        <img src="logo-small.png" class="card-logo">
+    </div>
+    <div class="card-bottom">
+        Produto 1<br>Descrição do produto 1.<br>Cliques: <span class="click-count">0</span> / 5<br><button class="matricular" onclick="handleClick(this, 'https://example.com/produto1')">Matricular</button>
+    </div>
+</div>
+
+            <div class="card" data-click-limit="3">
+                <div class="card-top" style="background-color: #d4edda;">
+                    <img src="logo-small.png" class="card-logo">
+                </div>
+                <div class="card-bottom">
+                    Produto 2<br>Descrição do produto 2.<br>Cliques: <span class="click-count">0</span> / 3<br><button class="matricular" onclick="handleClick(this, 'https://example.com/produto2')">Matricular</button>
+                </div>
+            </div>
+            <!-- Adicione mais cards conforme necessário -->
+        </div>
+    </main>
+    <footer>
+        © 2024 Sua Empresa. Todos os direitos reservados.<br>
+        <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a>
+    </footer>
+    <div class="whatsapp-button">
+        <img src="whatsapp-icon.png" alt="WhatsApp">
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function restartPage() {
+            location.reload(); // Recarrega a página
+        }
+
+        function handleClick(button, url) {
+            const card = button.closest('.card');
+            const clickCountElem = card.querySelector('.click-count');
+            let clickCount = parseInt(clickCountElem.textContent);
+            const clickLimit = parseInt(card.getAttribute('data-click-limit'));
+
+            if (clickCount < clickLimit) {
+                clickCount++;
+                clickCountElem.textContent = clickCount;
+
+                if (clickCount >= clickLimit) {
+                    button.disabled = true; // Desabilita o botão se o limite for atingido
+                }
+
+                // Redireciona para o link especificado
+                window.location.href = url;
+            }
+        }
+    </script>
+</body>
+</html>
