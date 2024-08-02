@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma de Rematrícula</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Adicione este trecho no head do seu HTML -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js"></script>
+<script>
+  // Configurações do Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDt9X9PsO-JCX6-Ux28mdOReHx3DxaZKGw",
+    authDomain: "rematricula-f8bdf.firebaseapp.com",
+    projectId: "rematricula-f8bdf",
+    storageBucket: "rematricula-f8bdf.appspot.com",
+    messagingSenderId: "533569776661",
+    appId: "1:533569776661:web:bbdc6667d21db2f0d7321c",
+    measurementId: "G-QX90W0CF67"
+  };
+  // Inicializar Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  const analytics = getAnalytics(app);
+</script>
 </head>
 <body>
     <header>
