@@ -98,21 +98,17 @@ h1 {
 }
 
 .card-top {
-    padding: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, #ff0000, #ff9999);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-}
+    align-items: center;
+    height: 200px; /* Ajuste a altura conforme necessário */
+    background-color: #e0e0e0; /* Cor de fundo opcional para visualização */
+  }
 
-.card-logo {
-    width: 60px;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-}
+  .card-logo {
+    width: 80px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+  }
 
 .card-bottom {
     background: #fff;
@@ -371,6 +367,50 @@ h1 {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000; /* Certifique-se de que o z-index está abaixo do pop-up */
+}
+
+/* Popup para limite de cliques */
+.popup-limite {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Certifique-se de que o z-index está alto o suficiente */
+    border-radius: 8px;
+    text-align: center;
+}
+
+.popup-overlay-limite {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Certifique-se de que o z-index está abaixo do pop-up */
+}
+
+/* Botão de fechar para o popup de limite */
+.popup-limite .fechar-limite {
+    background: #a13ce4; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.popup-limite .fechar-limite:hover {
+    background: #8a1bda; /* Cor de fundo ao passar o mouse */
 }
 
 @media (max-width: 768px) {
