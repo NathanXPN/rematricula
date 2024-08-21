@@ -174,7 +174,7 @@ h1 {
 
 .card:hover {
     background: linear-gradient(45deg, #ff9900, #ffcc00);
-    animation: gradientHover 3s ease infinite;
+    animation: gradientHover 15s ease infinite;
 }
 
 @keyframes gradientHover {
